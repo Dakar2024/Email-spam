@@ -1,0 +1,213 @@
+<h1 id="-d-tection-de-spam-dans-les-sms">📩 Détection de SPAM dans les SMS</h1>
+<!-- IMAGE D'EN-TÊTE -->
+<p align="center">
+  <img src="Images/SPAM-DETECTION.png" alt="Bannière de Détection de Spam"/>
+</p>
+
+<hr>
+<h2 id="-pr-sentation-du-projet">📌 Présentation du projet</h2>
+<p>Ce projet est un système de <strong>détection de spams dans les SMS</strong>, basé sur les techniques de <strong>traitement du langage naturel (NLP)</strong> et le <strong>Machine Learning</strong>.<br>Il utilise plusieurs modèles de classification, dont <strong>Naive Bayes</strong>, <strong>SVM</strong> et <strong>Random Forest</strong>, pour déterminer si un message est <strong>normal</strong> ou <strong>indésirable (spam)</strong>.</p>
+<hr>
+<h2 id="-pr-requis-et-installation">🧰 Prérequis et Installation</h2>
+<h3 id="d-pendances-n-cessaires">Dépendances nécessaires</h3>
+<ul>
+<li><a href="https://www.python.org/downloads/">Python 3.x</a></li>
+<li>pandas</li>
+<li>numpy</li>
+<li>scikit-learn</li>
+<li>nltk</li>
+<li>matplotlib</li>
+<li>seaborn</li>
+<li>wordcloud</li>
+</ul>
+<h3 id="installation">Installation</h3>
+<ol>
+<li><p><strong>Cloner le dépôt</strong></p>
+<pre><code class="lang-bash">git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/codeangel223/Spam-Detection-<span class="hljs-keyword">IN</span>-SMS-NLP
+cd Spam-Detection-<span class="hljs-keyword">IN</span>-SMS-NLP
+</code></pre>
+</li>
+<li><p><strong>Créer et activer l&#39;environnement virtuel</strong></p>
+</li>
+</ol>
+<p><strong>Sur Windows :</strong></p>
+<pre><code class="lang-bash">python -m venv venv
+venv<span class="hljs-symbol">\S</span>cripts<span class="hljs-symbol">\a</span>ctivate
+</code></pre>
+<p><strong>Sur macOS/Linux :</strong></p>
+<pre><code class="lang-bash">python3 -m venv venv
+<span class="hljs-keyword">source</span> venv<span class="hljs-regexp">/bin/</span>activate
+</code></pre>
+<ol>
+<li><strong>Installer les dépendances</strong><pre><code class="lang-bash">pip <span class="hljs-keyword">install</span> -r requirements.txt
+</code></pre>
+</li>
+</ol>
+<hr>
+<h2 id="-dataset-et-donn-es">📂 Dataset et Données</h2>
+<p>Le jeu de données contient environ <strong>5 572 SMS</strong>, chacun étiqueté comme suit :</p>
+<ul>
+<li><code>spam</code> : message indésirable</li>
+<li><code>ham</code> : message normal (non-spam)</li>
+</ul>
+<p><strong>Source :</strong> <a href="https://www.kaggle.com/datasets/rajnathpatel/multilingual-spam-data?utm_source=chatgpt.com">French Spam SMS Dataset</a></p>
+<hr>
+<h2 id="-m-thodologie">🔬 Méthodologie</h2>
+<h3 id="-1-pr-paration-des-donn-es">🔹 1. Préparation des données</h3>
+<ol>
+<li><strong>Chargement du dataset</strong></li>
+<li><strong>Nettoyage du texte</strong> (suppression des stopwords, ponctuations, doublons)</li>
+<li><strong>Analyse exploratoire des données (EDA)</strong></li>
+<li><strong>Vectorisation des messages</strong> via TF-IDF</li>
+<li><strong>Découpage</strong> des données en ensembles d&#39;entraînement et de test</li>
+</ol>
+<h3 id="-2-mod-les-impl-ment-s">🔹 2. Modèles implémentés</h3>
+<p>Trois modèles de machine learning ont été entraînés et comparés :</p>
+<ul>
+<li><strong>Naive Bayes</strong></li>
+<li><strong>SVM (Support Vector Machine)</strong></li>
+<li><strong>Random Forest</strong></li>
+</ul>
+<h3 id="-3-valuation-des-mod-les">🔹 3. Évaluation des modèles</h3>
+<p>Les modèles ont été évalués selon les métriques suivantes :</p>
+<ul>
+<li>Accuracy (Exactitude)</li>
+<li>Precision (Précision)</li>
+<li>Recall (Rappel)</li>
+<li>F1-score</li>
+</ul>
+<hr>
+<h2 id="-r-sultats-et-analyse">📊 Résultats et Analyse</h2>
+<h3 id="comparaison-des-performances">Comparaison des performances</h3>
+<table>
+<thead>
+<tr>
+<th>Modèle</th>
+<th>Accuracy</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1-score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naive Bayes</td>
+<td>0.97</td>
+<td>0.95</td>
+<td>0.93</td>
+<td>0.94</td>
+</tr>
+<tr>
+<td>SVM</td>
+<td>0.98</td>
+<td>0.97</td>
+<td>0.94</td>
+<td>0.955</td>
+</tr>
+<tr>
+<td>Random Forest</td>
+<td>0.97</td>
+<td>0.96</td>
+<td>0.92</td>
+<td>0.94</td>
+</tr>
+</tbody>
+</table>
+<h3 id="analyse-critique-des-r-sultats">Analyse critique des résultats</h3>
+<p>✅ <strong>Modèle sélectionné</strong> : <strong>SVM (Support Vector Machine)</strong></p>
+<p><strong>Justification :</strong> Le modèle SVM présente le meilleur compromis entre précision, rappel et F1-score avec une accuracy de 98%, ce qui en fait le choix optimal pour cette tâche de classification.</p>
+<h4 id="performances-d-taill-es-par-mod-le">Performances détaillées par modèle</h4>
+<p><strong>Naive Bayes</strong></p>
+<p align="center">
+  <img src="Images/naives-bayes-perf.png" alt="Performance du modèle Naive Bayes"/>
+</p>
+
+<p><strong>Random Forest</strong></p>
+<p align="center">
+  <img src="Images/random-forest-perf.png" alt="Performance du modèle Random Forest"/>
+</p>
+
+<p><strong>SVM (Support Vector Machine)</strong></p>
+<p align="center">
+  <img src="Images/svm-perf.png" alt="Performance du modèle SVM"/>
+</p>
+
+<hr>
+<h2 id="-code-python-document-">💻 Code Python Documenté</h2>
+<p>Le code source est organisé en plusieurs modules :</p>
+<ul>
+<li><code>app.ipynb</code> : <ul>
+<li>Nettoyage, </li>
+<li>préparation des données, </li>
+<li>Entraînement des modèles et </li>
+<li>Évaluation et comparaison des modèles</li>
+</ul>
+</li>
+<li><code>run.py</code> : Interface en ligne de commande (CLI)</li>
+</ul>
+<h3 id="utilisation-de-l-interface-cli">Utilisation de l&#39;interface CLI</h3>
+<ol>
+<li><strong>Lancer l&#39;application CLI</strong><pre><code class="lang-bash">python <span class="hljs-keyword">run</span>.<span class="bash">py</span>
+</code></pre>
+</li>
+</ol>
+<p>Saisissez un message lorsque demandé, et le programme indiquera s&#39;il s&#39;agit de <strong>SPAM</strong> ou de <strong>NORMAL</strong>.</p>
+<p align="center">
+  <img src="Images/cli_apptest.png" alt="Démo CLI de l'application"/>
+</p>
+
+<hr>
+<h2 id="-rapport-structur-">📋 Rapport Structuré</h2>
+<h3 id="1-exploration-des-donn-es">1. Exploration des données</h3>
+<ul>
+<li>Analyse de la distribution des classes (spam/ham)</li>
+<li>Statistiques descriptives des messages</li>
+<li>Visualisation des mots les plus fréquents</li>
+</ul>
+<h3 id="2-m-thodologie-appliqu-e">2. Méthodologie appliquée</h3>
+<ul>
+<li>Techniques de préprocessing du texte</li>
+<li>Stratégies de vectorisation (TF-IDF)</li>
+<li>Validation croisée et métriques d&#39;évaluation</li>
+</ul>
+<h3 id="3-r-sultats-obtenus">3. Résultats obtenus</h3>
+<ul>
+<li>Performances comparatives des modèles</li>
+<li>Matrice de confusion</li>
+<li>Analyse des erreurs de classification</li>
+</ul>
+<h3 id="4-analyse-critique">4. Analyse critique</h3>
+<ul>
+<li>Forces et faiblesses de chaque approche</li>
+<li>Limitations du dataset</li>
+<li>Perspectives d&#39;amélioration</li>
+</ul>
+<hr>
+<h2 id="-fonctionnalit-s-impl-ment-es">🔄 Fonctionnalités Implémentées</h2>
+<ul>
+<li>✅ Nettoyage et prétraitement des données (stopwords, ponctuation, doublons)</li>
+<li>✅ Analyse exploratoire des données (EDA)</li>
+<li>✅ Vectorisation des textes avec <strong>TF-IDF</strong></li>
+<li>✅ Entraînement de plusieurs modèles de machine learning</li>
+<li>✅ Sélection automatique du <strong>modèle le plus performant</strong></li>
+<li>✅ <strong>Interface en ligne de commande (CLI)</strong> pour la prédiction de nouveaux SMS</li>
+</ul>
+<hr>
+<h2 id="-r-f-rences">📚 Références</h2>
+<ul>
+<li><a href="https://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html">Scikit-learn Documentation</a></li>
+<li><a href="https://www.kaggle.com/datasets/rajnathpatel/multilingual-spam-data?utm_source=chatgpt.com">French Spam SMS Dataset</a></li>
+<li>Documentation NLTK pour le traitement du langage naturel</li>
+</ul>
+<hr>
+<h2 id="-contact">📬 Contact</h2>
+<p><strong>Moussa Mallé</strong></p>
+<ul>
+<li>GitHub : <a href="https://github.com/codeangel223">@codeangel223</a></li>
+<li>E-mail : <a href="mailto:codeangel223@gmail.com">codeangel223@gmail.com</a></li>
+<li>E-mail Perso: <a href="mailto:mallemoussa091@gmail.com">mallemoussa091@gmail.com</a></li>
+</ul>
+<hr>
+<blockquote>
+<p>🧠 Projet éducatif basé sur le NLP, le Machine Learning et la mise en pratique de la détection automatisée de messages indésirables.</p>
+</blockquote>
