@@ -25,9 +25,9 @@ def process(email_text: str) -> str:
 
 # Liste d'exemples prédéfinis
 examples = [
-    ["Félicitations ! Vous avez gagné un iPhone. Cliquez ici !"],
-    ["Salut, tu viens ce soir ?"],
-    ["URGENT: Votre compte sera suspendu. Mettez à jour vos infos."]
+    ["Coucou, j'ai bien reçu ton message. On en parle demain ?"],
+    ["Le prof a décalé le cours de 14h à 16h."],
+    ["Je suis en route. J’arrive dans 10 minutes."]
 ]
 
 # Interface Gradio
